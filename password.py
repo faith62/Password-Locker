@@ -1,3 +1,4 @@
+import pyperclip
 from keyring import delete_password
 
 
@@ -46,3 +47,8 @@ class Password:
         method that returns password list
         '''
         return cls.contact_list
+
+    @classmethod
+    def copy_password(cls,password):
+        password_found = Password.find_by_password(password)
+        pyperclip.copy(password_found.password)

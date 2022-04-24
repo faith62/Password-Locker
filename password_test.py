@@ -89,6 +89,12 @@ def test_display_all_password(self):
 
         self.assertEqual(Password.display_password(),Password.password_list)
 
+def test_copy_password(self):
+    self.new_password.save_password
+    Password.copy_password("123456")
+
+    self.assertEqual(self.new_password.password,pyperclip.paste())
+
 
 
 if __name__ == '__main__': #confirming that anything inside the if block should run only if this is the file that is currently being run
