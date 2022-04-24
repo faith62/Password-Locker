@@ -8,3 +8,9 @@ def create_password(uname,pwd):
     '''
     new_password = Password(uname,pwd)
     return new_password
+
+def save_password(password):
+    '''
+    function to save password
+    '''
+    password.save_password
