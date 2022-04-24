@@ -14,3 +14,10 @@ def save_password(password):
     function to save password
     '''
     password.save_password
+
+def del_password(password):
+    '''
+    function to del password
+    '''
+    password.delete_password()
+    
