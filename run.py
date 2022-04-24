@@ -32,4 +32,11 @@ def check_existing_password(user_name):
     function that check if a password exist with that username
     and returns a boolean 
     '''
+    return Password.password_exist(user_name)
+
+def display_password():
+    '''
+    function that returns all the saved passwords
+    '''
+    return Password.display_password()
 
