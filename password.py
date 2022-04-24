@@ -51,4 +51,4 @@ class Password:
     @classmethod
     def copy_password(cls,password):
         password_found = Password.find_by_password(password)
-        pyperclip.copy(password_found.password)
+        pyperclip.copy(password_found.password) #copy passed in items to the machines clipboard

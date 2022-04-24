@@ -93,7 +93,7 @@ def test_copy_password(self):
     self.new_password.save_password
     Password.copy_password("123456")
 
-    self.assertEqual(self.new_password.password,pyperclip.paste())
+    self.assertEqual(self.new_password.password,pyperclip.paste()) # returns whatever is copied on the machine's clipboard at that time.
 
 
 
