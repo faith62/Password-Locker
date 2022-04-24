@@ -59,6 +59,20 @@ def test_delete_password(self):
     self.new_password.delete_password()  #Deleting a contact object
     self.assertEqual(len(Password.password_list),1) 
 
+def text_find_contact_by_number(self):
+    '''
+    test to check if we can find a password by password and display information
+    '''
+
+    self.new_password.save_password()
+    test_password = Password("user","345678") #new password
+    test_password.save_password()
+
+    found_password = Password.find_by_password("345678")
+
+    self.assertEqual(found_password.user_name,test_password.user_name)
+
+
 if __name__ == '__main__': #confirming that anything inside the if block should run only if this is the file that is currently being run
     unittest.main() #provides a command line interface that collects all the tests methods and executes them.
 
