@@ -39,3 +39,10 @@ class Password:
             return True
 
         return False
+
+    @classmethod
+    def display_password(cls):
+        '''
+        method that returns password list
+        '''
+        return cls.contact_list
