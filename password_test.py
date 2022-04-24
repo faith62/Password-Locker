@@ -32,6 +32,12 @@ def test_save_password(self):
     self.new_password.save_password() # saving the new password
     self.assertEqual(len(Password.password_list),1)
 
+def test_save_multiple_password(self):
+    self.new_password.save_password()
+    test_password = Password("user","123456") #new password
+    test_password.save_password()
+    self.assertEqual(len(Password.password_list),2)
+
 
     
 
