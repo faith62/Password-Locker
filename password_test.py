@@ -15,6 +15,12 @@ def setUp(self): #allows us to define instructions that will be executed before 
         '''
         self.new_password = Password("Faith", "123456") # create new instance of password class, store in an instance variable in test class self.new_password
 
+def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Password.password_list = []
+
 
 def test_init(self):
     '''
@@ -33,10 +39,14 @@ def test_save_password(self):
     self.assertEqual(len(Password.password_list),1)
 
 def test_save_multiple_password(self):
-    self.new_password.save_password()
-    test_password = Password("user","123456") #new password
-    test_password.save_password()
-    self.assertEqual(len(Password.password_list),2)
+            '''
+            test_save_multiple_password to check if we can save multiple password
+            objects to our password_list
+            '''
+            self.new_password.save_password()
+            test_password = Password("user","123456") # new password
+            test_password.save_password()
+            self.assertEqual(len(Password.password_list),2)    
 
 
     
