@@ -20,4 +20,16 @@ def del_password(password):
     function to del password
     '''
     password.delete_password()
-    
+
+def find_password(user_name):
+    '''
+    function that finds password by username and returns the password
+    '''
+    return Password.find_by_user_name(user_name)
+
+def check_existing_password(user_name):
+    '''
+    function that check if a password exist with that username
+    and returns a boolean 
+    '''
+
