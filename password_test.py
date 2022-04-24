@@ -39,17 +39,25 @@ def test_save_password(self):
     self.assertEqual(len(Password.password_list),1)
 
 def test_save_multiple_password(self):
-            '''
-            test_save_multiple_password to check if we can save multiple password
-            objects to our password_list
-            '''
-            self.new_password.save_password()
-            test_password = Password("user","123456") # new password
-            test_password.save_password()
-            self.assertEqual(len(Password.password_list),2)    
+    '''
+    test_save_multiple_password to check if we can save multiple password
+    objects to our password_list
+    '''
+    self.new_password.save_password()
+    test_password = Password("user","123456") # new password
+    test_password.save_password()
+    self.assertEqual(len(Password.password_list),2)  
 
+def test_delete_password(self):
+    '''
+    test_delete_contact to test if we can remove a contact from our contact list
+    ''' 
+    self.new_password.save_password()
+    test_password = Password("user","123456")#new password
+    test_password.save_password()
 
-    
+    self.new_password.delete_password()  #Deleting a contact object
+    self.assertEqual(len(Password.password_list),1) 
 
 if __name__ == '__main__': #confirming that anything inside the if block should run only if this is the file that is currently being run
     unittest.main() #provides a command line interface that collects all the tests methods and executes them.

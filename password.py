@@ -1,3 +1,6 @@
+from keyring import delete_password
+
+
 class Password:
     """
     Class that generates new instances of password
@@ -17,4 +20,9 @@ class Password:
         Password.password_list.append(self)
         
 
-    
+    def delete_password(self):
+        '''
+        delete_password method deletes a saved contact from the password_list
+        '''
+
+        Password.password_list.remove(self)
