@@ -81,6 +81,14 @@ def test_contact_exist(self):
 
     self.assertTrue(password_exists) 
 
+def test_display_all_password(self):
+        '''
+        method that returns a list of all password saved
+        '''
+
+        self.assertEqual(Password.display_password(),Password.password_list)
+
+
 
 if __name__ == '__main__': #confirming that anything inside the if block should run only if this is the file that is currently being run
     unittest.main() #provides a command line interface that collects all the tests methods and executes them.
