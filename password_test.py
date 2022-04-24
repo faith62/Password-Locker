@@ -72,6 +72,15 @@ def text_find_contact_by_number(self):
 
     self.assertEqual(found_password.user_name,test_password.user_name)
 
+def test_contact_exist(self):
+    self.new_password.save_contact()
+    test_password = Password("user","345678") #new contact
+    test_password.save_password()
+
+    password_exists = Password.password_exist("345678")
+
+    self.assertTrue(password_exists) 
+
 
 if __name__ == '__main__': #confirming that anything inside the if block should run only if this is the file that is currently being run
     unittest.main() #provides a command line interface that collects all the tests methods and executes them.
