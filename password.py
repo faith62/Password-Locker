@@ -26,3 +26,9 @@ class Password:
         '''
 
         Password.password_list.remove(self)
+
+    @classmethod
+    def find_by_number(cls,number):
+        for password in cls.password_list:
+            if password.password == password:
+                return password
