@@ -82,8 +82,21 @@ def main():
         print("Username:")
         user_name = input()
 
-        print("Password:")
-        password = input()
+        while True:
+            print(" tp - To type your own pasword:\n gp - To generate random Password")
+            password_Choice = input().lower()
+            if password_Choice == 'tp':
+                print("Password:")
+                password = input()
+                break
+            elif password_Choice == 'gp':
+                print("Password")
+                password = generate_random_password()
+                break
+            else:
+                print("Invalid password please try again")
+
+       
 
         save_user(create_user(user_name, password)) # create and save new user.
         print ('\n')

@@ -1,4 +1,6 @@
 import pyperclip
+import string
+import random
 # from keyring import delete_credentials
 
 
@@ -103,3 +105,15 @@ class Credentials:
     def copy_credentials(cls,account):
         credentials_found = Credentials.find_by_credentials(account)
         pyperclip.copy(credentials_found.credentials) #copy passed in items to the machines clipboard
+    
+    
+    def generate_random_password(length=10):
+        """Generate a random password string of letters and digits and special characters"""
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "~!@#$%^&*"
+        return "".join(random.shuffle(password) for i in range(length))
+
+
+
+
+
+        
