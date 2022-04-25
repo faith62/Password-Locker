@@ -85,7 +85,7 @@ def main():
         print("Password:")
         password = input()
 
-        save_credentials(create_credentials(account, username, password)) # create and save new credentials.
+        save_user(create_user(user_name, password)) # create and save new user.
         print ('\n')
         print(f" {user_name} ,your new account has been created successfully! Your password is {password} ")
         print ('\n')
