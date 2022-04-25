@@ -22,7 +22,7 @@ def test_init(self):
     test_init test case to test if the object is initialized properly
     '''
 
-    self.assertEqual(self.new_user.username,"Faith")
+    self.assertEqual(self.new_user.user_name,"Faith")
     self.assertEqual(self.new_user.password,"123456")
 
 def test_save_user(self):

@@ -3,11 +3,11 @@
 from click import password_option
 from password import User, Credentials
 
-def create_user(username, password):
+def create_user(user_name, password):
     '''
     Function to create new user
     '''
-    new_user = User(username,password)
+    new_user = User(user_name,password)
     return new_user
 
 def save_user(user):
@@ -22,11 +22,11 @@ def display_user():
     '''
     return User.display_user()
 
-def verify_user(username, password):
+def verify_user(user_name, password):
     '''
     function that checks whether a user exist 
     '''
-    check_user =User.verify_user (username,password)
+    check_user =User.verify_user (user_name,password)
     return check_user
 
 def create_credentials(account,username,password):
@@ -68,11 +68,42 @@ def display_credentials():
     return Credentials.display_credentials()
 
 def main():
-    print("Hello Welcome to your credentials list. What is your name?")
+    print("Hello Welcome to your Password locker. What is your name?")
     name = input()
 
-    print(f"Hello {name}. what would you like to do?")
+    print(f"Hello {name}. what would you like to do? \n  Use the short codes: ca - create an account, li - login to an existing account ")
     print('\n')
+    short_code = input().lower()
+
+    if short_code == "ca":
+        print("Sign Up")
+        print("-"*20)
+
+        print("Username:")
+        user_name = input()
+
+        print("Password:")
+        password = input()
+
+        save_credentials(create_credentials(account, username, password)) # create and save new credentials.
+        print ('\n')
+        print(f" {user_name} ,your new account has been created successfully! Your password is {password} ")
+        print ('\n')
+
+    elif short_code == "li":
+        print("Login to your account:")
+        print("-"*20)
+
+        print("Username:")
+        user_name = input()
+
+        print("Password:")
+        password = input()
+
+        login = verify_user(user_name,password)
+        if verify_user == login:
+            print(f"{user_name}.Welcome to Password Locker")
+            print("\n")        
 
     while True:
         print("Use these short codes : cc - create a new credentials, dc - display credentials, fc -find a credentials, ex -exit the credentials list ")

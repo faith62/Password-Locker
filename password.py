@@ -8,9 +8,9 @@ class User:
     """
     user_list = [] #used to store our created user objects 
 
-    def __init__(self, username, password):
+    def __init__(self, user_name, password):
 
-        self.username = username
+        self.user_name = user_name
         self.password = password
 
     def save_user(self):
@@ -42,14 +42,14 @@ class Credentials:
     credentials_list =  [] #used to store our created credentials objects 
 
     @classmethod
-    def verify_user(cls,username,password):
+    def verify_user(cls,user_name,password):
         """
         method that verify user
         """
         a_user = ""
         for user in User.user_list:
-            if(User.username == username and User.password == password):
-                a_user == User.username
+            if(user.user_name == user_name and user.password == password):
+                a_user == user.user_name
         return a_user
 
     def __init__(self,account, username, password):
