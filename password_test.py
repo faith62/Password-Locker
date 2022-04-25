@@ -61,7 +61,7 @@ def test_init(self):
     '''
     self.assertEqual(self.new_credentials.account,"Instagram")
     self.assertEqual(self.new_credentials.user_name,"Faith")
-    self.assertEqual(self.new_credentials.password,"cfai12")
+    self.assertEqual(self.new_credentials.password,"cfi12")
 
 def test_save_credentials(self):
     '''
