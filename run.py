@@ -9,6 +9,13 @@ def create_user(username, password):
     new_user = User(username,password)
     return new_user
 
+def save_user(user):
+    '''
+    function to save user
+    '''
+    user.save_user()
+
+
 def create_credentials(account,username,password):
     '''
     Function to create a new credentials
