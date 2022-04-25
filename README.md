@@ -3,7 +3,7 @@
 
 An application that will help us manage our passwords and even generate new password for us. Touches on Test Driven Development using unittest (Python test framework).
 
-### By Faith Chemutai ,21/03/2022
+### By Faith Chemutai ,25/04/2022
 ## Setup/instalation Requirements
 *You need to have a vs code/ atom , python installed
 *Access to Internet
