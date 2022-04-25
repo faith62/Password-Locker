@@ -1,5 +1,6 @@
 #!/usr/bin/env python3.9
 
+from click import password_option
 from password import User, Credentials
 
 def create_user(username, password):
@@ -11,10 +12,22 @@ def create_user(username, password):
 
 def save_user(user):
     '''
-    function to save user
+    function to save a new user
     '''
     user.save_user()
 
+def display_user():
+    '''
+    function that returns all the saved user
+    '''
+    return User.display_user()
+
+def verify_user(username, password):
+    '''
+    function that checks whether a user exist 
+    '''
+    check_user =User.verify_user (username,password)
+    return check_user
 
 def create_credentials(account,username,password):
     '''
