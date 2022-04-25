@@ -6,9 +6,10 @@ class User:
     """
     Class that generates new instances of password
     """
-    user_list =  [] #used to store our created user objects 
+    user_list = [] #used to store our created user objects 
 
-    def __init__(self,username,password):
+    def __init__(self, username, password):
+
         self.username = username
         self.password = password
 
@@ -19,6 +20,20 @@ class User:
         '''
 
         User.user_list.append(self)
+
+    @classmethod
+    def display_user(cls):
+        '''
+        method that returns password list
+        '''
+        return cls.user_list
+
+    def delete_user(self):
+        '''
+        delete_account method deletes a  saved account from the list
+        '''
+        User.user_list.remove(self)
+
         
 class Password:
     """
