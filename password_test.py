@@ -1,7 +1,7 @@
 import unittest # Importing the unittest module
 import pyperclip
 from password import User
-from password import Password # Importing the password class
+from password import Credentials # Importing the credentials class
 
 class TestUser(unittest.TestCase):
 
@@ -15,7 +15,7 @@ def setUp(self): #allows us to define instructions that will be executed before 
         '''
         Set up method to run before each test cases.
         '''
-        self.new_user = User("Faith", "123456") # create new instance of password class, store in an instance variable in test class self.new_password
+        self.new_user = User("Faith", "123456") # create new instance of user class, store in an instance variable in test class self.new_user
 
 def test_init(self):
     '''
@@ -34,10 +34,10 @@ def test_save_user(self):
         self.assertEqual(len(User.user_list),1)
 
 
-class TestPassword(unittest.TestCase):
+class TestCredentials(unittest.TestCase):
 
     '''
-    Test class that defines test cases for the password class behaviours.
+    Test class that defines test cases for the credentials class behaviours.
 
     Args:
         unittest.TestCase: TestCase class that helps in creating test cases
@@ -46,86 +46,86 @@ def setUp(self): #allows us to define instructions that will be executed before 
         '''
         Set up method to run before each test cases.
         '''
-        self.new_password = Password("Faith", "123456") # create new instance of password class, store in an instance variable in test class self.new_password
+        self.new_credentials = Credentials("Faith", "123456") # create new instance of credentials class, store in an instance variable in test class self.new_credentials
 
 def tearDown(self):
             '''
             tearDown method that does clean up after each test case has run.
             '''
-            Password.password_list = []
+            Credentials.credentials_list = []
 
 
 def test_init(self):
     '''
     test_init test case to test if the object is initialized properly
     '''
+    self.assertEqual(self.new_credentials.account,"Instagram")
+    self.assertEqual(self.new_credentials.user_name,"Faith")
+    self.assertEqual(self.new_credentials.password,"cfai12")
 
-    self.assertEqual(self.new_password.user_name,"Faith")
-    self.assertEqual(self.new_password.password,"123456")
+def test_save_credentials(self):
+    '''
+    test_save_credentials test case to test if the credentials object is saved into
+        the credentials list
+    '''
+    self.new_credentials.save_credentials() # saving the new credentials
+    self.assertEqual(len(Credentials.credentials_list),1)
 
-def test_save_password(self):
+def test_save_multiple_credentials(self):
     '''
-    test_save_password test case to test if the password object is saved into
-        the password list
+    test_save_multiple_credentials to check if we can save multiple credentials
+    objects to our credentials_list
     '''
-    self.new_password.save_password() # saving the new password
-    self.assertEqual(len(Password.password_list),1)
+    self.new_credentials.save_credentials()
+    test_credentials = Credentials("Facebook","Fchem","fchem1") # new credentials
+    test_credentials.save_credentials()
+    self.assertEqual(len(Credentials.credentials_list),2)  
 
-def test_save_multiple_password(self):
-    '''
-    test_save_multiple_password to check if we can save multiple password
-    objects to our password_list
-    '''
-    self.new_password.save_password()
-    test_password = Password("user","123456") # new password
-    test_password.save_password()
-    self.assertEqual(len(Password.password_list),2)  
-
-def test_delete_password(self):
+def test_delete_credentials(self):
     '''
     test_delete_contact to test if we can remove a contact from our contact list
     ''' 
-    self.new_password.save_password()
-    test_password = Password("user","123456")#new password
-    test_password.save_password()
+    self.new_credentials.save_credentials()
+    test_credentials = Credentials("Facebook","Fchem","fchem1")#new credentials
+    test_credentials.save_credentials()
 
-    self.new_password.delete_password()  #Deleting a contact object
-    self.assertEqual(len(Password.password_list),1) 
+    self.new_credentials.delete_credentials()  #Deleting a contact object
+    self.assertEqual(len(Credentials.credentials_list),1) 
 
-def text_find_contact_by_number(self):
+def text_find_credential_by_account(self):
     '''
-    test to check if we can find a password by password and display information
+    test to check if we can find a credentials by credentials and display information
     '''
 
-    self.new_password.save_password()
-    test_password = Password("user","345678") #new password
-    test_password.save_password()
+    self.new_credentials.save_credentials()
+    test_credentials = Credentials("Facebook","Fchem","fchem1") #new credentials
+    test_credentials.save_credentials()
 
-    found_password = Password.find_by_password("345678")
+    found_credentials = Credentials.find_by_credentials("Facebook")
 
-    self.assertEqual(found_password.user_name,test_password.user_name)
+    self.assertEqual(found_credentials.account,test_credentials.account)
 
-def test_contact_exist(self):
-    self.new_password.save_contact()
-    test_password = Password("user","345678") #new contact
-    test_password.save_password()
+def test_credential_exist(self):
+    self.new_credentials.save_credentials()
+    test_credentials = Credentials("Facebook","Fchem","fchem1") #new contact
+    test_credentials.save_credentials()
 
-    password_exists = Password.password_exist("345678")
+    credentials_exists = Credentials.credentials_exist("Facebook")
 
-    self.assertTrue(password_exists) 
+    self.assertTrue(credentials_exists) 
 
-def test_display_all_password(self):
+def test_display_all_credentials(self):
         '''
-        method that returns a list of all password saved
+        method that returns a list of all credentials saved
         '''
 
-        self.assertEqual(Password.display_password(),Password.password_list)
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 
-def test_copy_password(self):
-    self.new_password.save_password
-    Password.copy_password("123456")
+def test_copy_credentials(self):
+    self.new_credentials.save_credentials
+    Credentials.copy_credentials("Instagram")
 
-    self.assertEqual(self.new_password.password,pyperclip.paste()) # returns whatever is copied on the machine's clipboard at that time.
+    self.assertEqual(self.new_credentials.credentials,pyperclip.paste()) # returns whatever is copied on the machine's clipboard at that time.
 
 
 

@@ -41,7 +41,7 @@ class Credentials:
     """
     credentials_list =  [] #used to store our created credentials objects 
 
-    def __init__(self,account, username,password):
+    def __init__(self,account, username, password):
         """
         method that defines user credentials to be stored
         """
@@ -66,16 +66,19 @@ class Credentials:
         Credentials.credentials_list.remove(self)
 
     @classmethod
-    def find_by_credentials(cls,number):
+    def find_by_credentials(cls,account):
         for credentials in cls.credentials_list:
-            if credentials.password == credentials:
+            if credentials.account == account:
                 return credentials
 
     @classmethod
-    def credentials_exist(cls,password):
-        for credentials in cls.credentials_list:
-            return True
-
+    def if_credential_exist(cls, account):
+        """
+        Method that checks if a credential exists from the credential list and returns true or false depending if the credential exists.
+        """
+        for credential in cls.credentials_list:
+            if credential.account == account:
+                return True
         return False
 
     @classmethod
@@ -86,6 +89,6 @@ class Credentials:
         return cls.credentials_list
 
     @classmethod
-    def copy_credentials(cls,password):
-        credentials_found = Credentials.find_by_credentials(password)
-        pyperclip.copy(credentials_found.password) #copy passed in items to the machines clipboard
+    def copy_credentials(cls,account):
+        credentials_found = Credentials.find_by_credentials(account)
+        pyperclip.copy(credentials_found.credentials) #copy passed in items to the machines clipboard
