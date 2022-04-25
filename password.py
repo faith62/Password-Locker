@@ -41,8 +41,12 @@ class Credentials:
     """
     credentials_list =  [] #used to store our created credentials objects 
 
-    def __init__(self,user_name,password):
-        self.user_name = user_name
+    def __init__(self,account, username,password):
+        """
+        method that defines user credentials to be stored
+        """
+        self.account = account
+        self.username = username
         self.password = password
 
     def save_credentials(self):
