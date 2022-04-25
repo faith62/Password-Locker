@@ -26,7 +26,7 @@ def verify_user(user_name, password):
     '''
     function that checks whether a user exist 
     '''
-    check_user =User.verify_user (user_name,password)
+    check_user =Credentials.verify_user (user_name,password)
     return check_user
 
 def create_credentials(account,username,password):
@@ -59,7 +59,7 @@ def check_existing_credentials(account):
     function that check if a credentials exist with that account
     and returns a boolean 
     '''
-    return Credentials.credentials_exist(account)
+    return Credentials.credential_exist(account)
 
 def display_credentials():
     '''
@@ -70,7 +70,7 @@ def display_credentials():
 def main():
     print("Hello Welcome to your Password locker. What is your name?")
     name = input()
-
+    
     print(f"Hello {name}. what would you like to do? \n  Use the short codes: ca - create an account, li - login to an existing account ")
     print('\n')
     short_code = input().lower()
@@ -105,7 +105,8 @@ def main():
             print(f"{user_name}.Welcome to Password Locker")
             print("\n")        
 
-    while True:
+    while True: 
+        print("Welcome to Password Locker manager, what would you like to do?:")
         print("Use these short codes : cc - create a new credentials, dc - display credentials, fc -find a credentials, ex -exit the credentials list ")
 
         short_code = input().lower()
@@ -150,17 +151,17 @@ def main():
 
                 search_account = input()
                 if check_existing_credentials(search_account):
-                        search_credentials = find_credentials(search_account)
-                        print(f"Account Name: {search_credentials.account}")
+                        search_credential = find_credentials(search_account)
+                        print(f"{search_credential.account}")
                         print('-' * 20)
 
-                        print(f"Username: {search_credentials.username}")
-                        print(f"Password: {search_credentials.password}")
+                        print(f"Username: {search_credential.username}")
+                        print(f"Password: {search_credential.password}")
                 else:
                         print("That account does not exist")
 
         elif short_code == "ex":
-                print("Bye .......")
+                print("Thank you and welcome back!")
                 break
         else:
                 print("I really didn't get that. Please use the short codes")

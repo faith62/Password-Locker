@@ -77,13 +77,13 @@ class Credentials:
         Credentials.credentials_list.remove(self)
 
     @classmethod
-    def find_by_credentials(cls,account):
+    def find_by_account(cls,account):
         for credentials in cls.credentials_list:
             if credentials.account == account:
                 return credentials
 
     @classmethod
-    def if_credential_exist(cls, account):
+    def credential_exist(cls, account):
         """
         Method that checks if a credential exists from the credential list and returns true or false depending if the credential exists.
         """
