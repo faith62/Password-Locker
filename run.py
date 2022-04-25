@@ -67,6 +67,13 @@ def display_credentials():
     '''
     return Credentials.display_credentials()
 
+def generate_random_password():
+    '''
+    generates a random password for the user.
+    '''
+    auto_password=Credentials.generate_random_password()
+    return auto_password
+
 def main():
     print("Hello Welcome to your Password locker. What is your name?")
     name = input()
@@ -83,15 +90,17 @@ def main():
         user_name = input()
 
         while True:
-            print(" tp - To type your own pasword:\n gp - To generate random Password")
+            print("what would you like? \n tp - To type your own pasword:\n gp - To generate random Password")
             password_Choice = input().lower()
             if password_Choice == 'tp':
                 print("Password:")
                 password = input()
                 break
             elif password_Choice == 'gp':
-                print("Password")
+                
                 password = generate_random_password()
+                print("password:")
+                print(password)
                 break
             else:
                 print("Invalid password please try again")
@@ -125,17 +134,30 @@ def main():
         short_code = input().lower()
 
         if short_code == 'cc':
-                print("New credential")
-                print("-"*20)
+            print("New credential")
+            print("-"*20)
 
-                print ("Account name:")
-                account = input()
+            print ("Account name:")
+            account = input()
 
-                print("Account Username:")
-                username = input()
+            print("Account Username:")
+            username = input()
 
-                print("Account Password:")
-                password = input()
+            while True:
+                print("what would you like? \n tp - To type your own pasword:\n gp - To generate random Password")
+                password_Choice = input().lower()
+                if password_Choice == 'tp':
+                    print("Account Password:")
+                    password = input()
+                    break
+                elif password_Choice == 'gp':
+                    
+                    password = generate_random_password()
+                    print("Account Password:")
+                    print(password)
+                    break
+                else:
+                    print("Invalid password please try again")
 
              
                 save_credentials(create_credentials(account, username, password)) # create and save new credentials.
