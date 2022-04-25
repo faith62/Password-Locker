@@ -3,24 +3,22 @@ from keyring import delete_password
 
 
 class User:
-    user_list = []
-
     """
     Class that generates new instances of password
     """
-    password_list =  [] #used to store our created user objects 
+    user_list =  [] #used to store our created user objects 
 
-    def __init__(self,user_name,password):
-        self.user_name = user_name
+    def __init__(self,username,password):
+        self.username = username
         self.password = password
 
     def save_user(self):
 
         '''
-        save_password method saves password objects into password_list
+        save_user method saves password objects into user_list
         '''
 
-        Password.user_list.append(self)
+        User.user_list.append(self)
         
 class Password:
     """

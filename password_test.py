@@ -1,6 +1,38 @@
 import unittest # Importing the unittest module
 import pyperclip
+from password import User
 from password import Password # Importing the password class
+
+class TestUser(unittest.TestCase):
+
+    '''
+    Test class that defines test cases for the user class behaviours.
+
+    Args:
+        unittest.TestCase: TestCase class that helps in creating test cases
+    '''
+def setUp(self): #allows us to define instructions that will be executed before each test method.
+        '''
+        Set up method to run before each test cases.
+        '''
+        self.new_user = User("Faith", "123456") # create new instance of password class, store in an instance variable in test class self.new_password
+
+def test_init(self):
+    '''
+    test_init test case to test if the object is initialized properly
+    '''
+
+    self.assertEqual(self.new_user.user_name,"Faith")
+    self.assertEqual(self.new_user.password,"123456")
+
+def test_save_user(self):
+        """
+        test case to test if a new user instance has been saved into the User list
+
+        """
+        self.new_user.save_user()
+        self.assertEqual(len(User.user_list),1)
+
 
 class TestPassword(unittest.TestCase):
 
